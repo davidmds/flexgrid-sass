@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var livereload = require('gulp-livereload');
 var clean = require('gulp-clean');
+var rename = require("gulp-rename");
 
 // variaveis de entrada e saida
 var scss_in = './assets/**/*.scss';
@@ -22,8 +23,14 @@ gulp.task('sass', function () {
     'use strict';
     gulp.src(scss_in)
         .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(autoprefixer({browsers: ['last 5 versions']}))
+        .pipe(gulp.dest(scss_out));
+    gulp.src(scss_in)
+        .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({browsers: ['last 5 versions']}))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(scss_out));
 });
 
