@@ -1,0 +1,105 @@
+// Mixin to media queries
+@mixin media($width) {
+	@media only screen and (min-width: $width) {
+		@content;
+	}
+}
+
+// Framework grid generation
+@mixin make-grid-columns($class) {
+	$list: ".#{$prefix-class}col-#{$class}";
+	@for $i from 1 through $grid-columns {
+		$list: "#{$list}, .#{$prefix-class}col-#{$class}-#{$i}";
+	}
+
+	$list-offset: ".#{$prefix-class}col-#{$class}-offset-0";
+	@for $i from 1 through $grid-columns {
+		$list-offset: "#{$list-offset}, .#{$prefix-class}col-#{$class}-offset-#{$i}";
+	}
+
+	#{$list}, #{$list-offset} {
+		box-sizing: border-box;
+		flex: 0 0 auto;
+		padding-left:  ceil(($grid-gutter-width / 2));
+		padding-right: floor(($grid-gutter-width / 2));
+	}
+}
+
+@mixin calc-grid-column($index, $class, $type) {
+	@if ($type == width) and ($index == 0) {
+		.#{$prefix-class}col-#{$class} {
+			flex-grow: 1;
+			flex-basis: 0;
+			max-width: 100%;
+		}
+	}
+	@if ($type == width) and ($index > 0) {
+		.#{$prefix-class}col-#{$class}-#{$index} {
+			flex-basis: percentage(($index / $grid-columns));
+			max-width: percentage(($index / $grid-columns));
+		}
+	}
+	@if ($type == offset) and ($index < $grid-columns){
+		.#{$prefix-class}col-#{$class}-offset-#{$index} {
+			margin-left: percentage(($index / $grid-columns));
+		}
+	}
+}
+
+@mixin loop-grid-columns($columns, $class, $type) {
+	@for $i from 0 through $columns {
+		@include calc-grid-column($i, $class, $type);
+	}
+}
+
+
+// Create grid for specific class
+@mixin make-grid($class) {
+	@include loop-grid-columns($grid-columns, $class, width);
+	@include loop-grid-columns($grid-columns, $class, offset);
+}
+
+@mixin make-helpers($class){
+	.#{$prefix-class}start-#{$class} {
+		justify-content: flex-start;
+		text-align: start;
+	}
+
+	.#{$prefix-class}center-#{$class} {
+		justify-content: center;
+		text-align: center;
+	}
+
+	.#{$prefix-class}end-#{$class} {
+		justify-content: flex-end;
+		text-align: end;
+	}
+
+	.#{$prefix-class}top-#{$class} {
+		align-items: flex-start;
+	}
+
+	.#{$prefix-class}middle-#{$class} {
+		align-items: center;
+	}
+
+	.#{$prefix-class}bottom-#{$class} {
+		align-items: flex-end;
+	}
+
+	.#{$prefix-class}around-#{$class} {
+		justify-content: space-around;
+	}
+
+	.#{$prefix-class}between-#{$class} {
+		justify-content: space-between;
+	}
+
+	.#{$prefix-class}first-#{$class} {
+		order: -1;
+	}
+
+	.#{$prefix-class}last-#{$class} {
+		order: 1;
+	}
+}
