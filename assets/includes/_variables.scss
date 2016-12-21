@@ -1,0 +1,21 @@
+$gutter-width: 16px;
+$outer-margin: 32px;
+$gutter-compensation: ($gutter-width / 2) * -1;
+$half-gutter-width: $gutter-width / 0.5;
+$xs-min: 480px;
+$sm-min: 768px;
+$md-min: 992px;
+$lg-min: 1200px;
+$screen-xs-min: $xs-min;
+$screen-sm-min: $sm-min;
+$screen-md-min: $md-min;
+$screen-lg-min: $lg-min;
+$container-sm: $sm-min + $gutter-width;
+$container-md: $md-min + $gutter-width;
+$container-lg: $lg-min + $gutter-width;
+
+//Grid variables
+$grid-columns: 12;
+$grid-gutter-width: $gutter-width;
+
+$prefix-class: "flex-";

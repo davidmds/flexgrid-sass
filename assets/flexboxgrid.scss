@@ -1,0 +1,64 @@
+@import "includes/mixins";
+@import "includes/variables";
+
+.#{$prefix-class}container-fluid, .#{$prefix-class}container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.#{$prefix-class}container-fluid {
+  padding-right: $outer-margin;
+  padding-left: $outer-margin;
+}
+
+.#{$prefix-class}container{
+  @include media($screen-sm-min) {
+    width: $container-sm;
+  }
+  @include media($screen-md-min) {
+    width: $container-md;
+  }
+  @include media($screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+.#{$prefix-class}row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+}
+
+.#{$prefix-class}row.#{$prefix-class}reverse {
+  flex-direction: row-reverse;
+}
+
+.#{$prefix-class}col.#{$prefix-class}reverse {
+  flex-direction: column-reverse;
+}
+
+@include make-grid-columns(xs);
+@include make-grid(xs);
+@include make-helpers(xs);
+
+@include media($screen-sm-min) {
+  @include make-grid-columns(sm);
+  @include make-grid(sm);
+  @include make-helpers(sm);
+}
+
+@include media($screen-md-min) {
+  @include make-grid-columns(md);
+  @include make-grid(md);
+  @include make-helpers(md);
+}
+
+@include media($screen-lg-min) {
+  @include make-grid-columns(lg);
+  @include make-grid(lg);
+  @include make-helpers(lg);
+}

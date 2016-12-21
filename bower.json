@@ -1,0 +1,25 @@
+{
+  "name": "flexgrid-sass",
+  "version": "1.0.0",
+  "description": "Flexboxgrid make with sass.",
+  "homepage": "https://github.com/davidmds/flexboxgrid-sass",
+  "main": "dist/flexboxgrid.css",
+  "keywords": [
+    "flexbox",
+    "grid",
+    "css"
+    "sass"
+  ],
+  "license": "MIT",
+  "authors": [
+    "davidmsantos@info.ufrn.br"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
