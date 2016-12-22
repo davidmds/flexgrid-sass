@@ -6,6 +6,23 @@
 }
 
 // Framework grid generation
+@mixin container-fixed(){
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $grid-gutter-width / 2;
+  padding-left: $grid-gutter-width / 2;
+}
+
+@mixin make-row(){
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: $grid-gutter-compensation;
+  margin-left: $grid-gutter-compensation;
+}
+
 @mixin make-grid-columns($class) {
 	$list: ".#{$prefix-class}col-#{$class}";
 	@for $i from 1 through $grid-columns {

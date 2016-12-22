@@ -1,17 +1,10 @@
 @import "includes/mixins";
 @import "includes/variables";
 
-.#{$prefix-class}container-fluid, .#{$prefix-class}container {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.#{$prefix-class}container-fluid {
-  padding-right: $grid-outer-margin;
-  padding-left: $grid-outer-margin;
-}
-
+//Create container's
 .#{$prefix-class}container{
+  @include container-fixed;
+
   @include media($screen-sm-min) {
     width: $container-sm;
   }
@@ -22,15 +15,13 @@
     width: $container-lg;
   }
 }
+.#{$prefix-class}container-fluid{
+  @include container-fixed;
+}
 
+//Create row/col
 .#{$prefix-class}row {
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-right: $gutter-compensation;
-  margin-left: $gutter-compensation;
+  @include make-row;
 }
 
 .#{$prefix-class}row.#{$prefix-class}reverse {
