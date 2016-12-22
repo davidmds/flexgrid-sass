@@ -1,6 +1,6 @@
 {
   "name": "flexgrid-sass",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Flexgrid make with sass.",
   "style": "dist/flexgrid.css",
   "main": "dist/flexgrid.css",

@@ -1,6 +1,6 @@
 {
   "name": "flexgrid-sass",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Flexboxgrid make with sass.",
   "homepage": "https://github.com/davidmds/flexboxgrid-sass",
   "main": "dist/flexboxgrid.css",
