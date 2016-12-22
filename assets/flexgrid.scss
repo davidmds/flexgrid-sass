@@ -7,8 +7,8 @@
 }
 
 .#{$prefix-class}container-fluid {
-  padding-right: $outer-margin;
-  padding-left: $outer-margin;
+  padding-right: $grid-outer-margin;
+  padding-left: $grid-outer-margin;
 }
 
 .#{$prefix-class}container{
